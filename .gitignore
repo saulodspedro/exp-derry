@@ -4,3 +4,5 @@
 question*
 img_path_file
 categories_cut
+*.log
+*.ans
