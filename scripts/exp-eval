@@ -1,0 +1,18 @@
+#!/bin/bash
+
+ANSWER_DIR=$1
+cluster_file=$2
+
+line_count=1
+
+for file in $(ls $ANSWER_DIR); do
+
+    expression=$(echo $line_count'q;d')
+
+    cluster=$(sed $expression $cluster_file | cut -f2)
+    answer=$(python ../bin/answer-extractor.py $ANSWER_DIR/$file)
+
+    echo $cluster\;$answer
+
+    ((line_count++))
+done
